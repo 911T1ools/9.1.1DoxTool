@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>DoXXeR 9.1.1 Tool</title>
+  <style>
+    body { font-family: sans-serif; background-color: #111; color: #0f0; text-align: center; padding: 30px; }
+    h1 { margin-bottom: 40px; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; width: 80%; max-width: 400px; }
+    button { background-color: #0f0; color: #000; border: none; cursor: pointer; }
+    button:hover { background-color: #0c0; }
+  </style>
+</head>
+<body>
+  <h1>DoXXeR 9.1.1 Tool</h1>
+
+  <h2>Name Search</h2>
+  <input type="text" id="nameInput" placeholder="Name eingeben">
+  <button onclick="searchName()">Suchen</button>
+
+  <h2>Phone Search (DE)</h2>
+  <input type="text" id="phoneInput" placeholder="z.B. 0301234567 oder 017612345678">
+  <button onclick="searchPhone()">Suchen</button>
+
+  <h2>IP Lookup</h2>
+  <input type="text" id="ipInput" placeholder="IP-Adresse eingeben">
+  <button onclick="searchIP()">Suchen</button>
+
+  <script>
+    function searchName() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (name) {
+        window.open(`https://www.whitepages.com/name/${encodeURIComponent(name)}?fs=1&q=${encodeURIComponent(name)}`, '_blank');
+      }
+    }
+
+    function searchPhone() {
+      const number = document.getElementById('phoneInput').value.trim();
+      if (number) {
+        window.open(`https://www.tellows.de/num/${number}`, '_blank');
+        window.open(`https://www.dastelefonbuch.de/Rückwärtssuche/${number}`, '_blank');
+      }
+    }
+
+    function searchIP() {
+      const ip = document.getElementById('ipInput').value.trim();
+      if (ip) {
+        window.open(`https://whatismyipaddress.com/ip/${ip}`, '_blank');
+      }
+    }
+  </script>
+</body>
+</html>
